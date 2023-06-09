@@ -79,6 +79,10 @@ tvwindow = "lightgoldenrod3"
 tvwindowdisabled = "peachpuff3"
 selectbackground = "#93ba45"
 selectforeground = "black"
+highlightBackground = bgcolor
+highlightColor = "black"
+InsertBackground = "black"
+selectColor = "#93ba45"
 
 
 def create_styles(sty, imgpath):
@@ -111,6 +115,10 @@ def create_styles(sty, imgpath):
         tvwindowdisabled="peachpuff3",
         selectbackground="#93ba45",
         selectforeground="black",
+        highlightBackground=bgcolor,
+        highlightColor="black",
+        InsertBackground="black",
+        selectColor="#93ba45",
     )
     sty.map(
         ".",
@@ -477,13 +485,12 @@ def set_palette(toplevel):
         background=bgcolor,
         disabledForeground=disabledfgcolor,
         foreground=fgcolor,
-        # highlightBackground="",
-        # highlightColor="",
-        # InsertBackground="",
-        # selectColor="",
-        selectBackground=selectbackground,
+        highlightBackground=bgcolor,
+        highlightColor="black",
+        InsertBackground="black",
+        selectColor="#93ba45",
+        selectBackground="#93ba45",
         selectForeground=selectforeground,
-        # troughColor="",
     )
 
 
@@ -495,13 +502,12 @@ def reset_palette(toplevel):
         background="#d9d9d9",
         disabledForeground="gray40",
         foreground="black",
-        # highlightBackground="",
-        # highlightColor="",
-        # InsertBackground="",
-        selectColor="red",
-        selectBackground="blue",
-        selectForeground="white",
-        # troughColor="",
+        highlightBackground="#d9d9d9",
+        highlightColor="black",
+        InsertBackground="black",
+        selectColor="#c4c4c4",
+        selectBackground="#c4c4c4",
+        selectForeground="black",
     )
 
 
