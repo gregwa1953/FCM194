@@ -45,15 +45,14 @@ def startup():
     sty = ttk.Style()
     os_default_theme = sty.theme_use()
     last_style = os_default_theme
-    imgpath = os.path.join(location, "Assets")
-    mystyles_notsodark.create_styles(sty, imgpath)
+    mystyles_notsodark.create_styles(sty)
     fix_TLabels()
     # Start the TProgressbar
     _w1.TProgressbar1.start()
 
 
 def fix_TLabels():
-    bgcolor = mystyles_notsodark.bgcolor
+    bgcolor = mystyles_notsodark._bgcolor
     print(f"{bgcolor=}")
     labelList = [_w1.TLabel1, _w1.TLabel2, _w1.TLabel3, _w1.TLabel4, _w1.TLabel5]
     for label in labelList:

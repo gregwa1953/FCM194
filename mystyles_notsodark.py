@@ -28,6 +28,7 @@
 #                            Added Global Toplevel color information
 #    2.05.7𝛽 - 4 May, 2023 - Fixed TRadiobutton and TCheckbutton custom graphics
 #    2.05.8𝛽 - 7 June, 2023 - Added support for tk_setPalette
+#    2.05.9𝛽 - 9 June, 2023 - Modified some colours
 # ======================================================
 #  Still to do 3 May, 2023
 # ------------------------------------------------------
@@ -58,73 +59,66 @@ import os.path
 
 _script = sys.argv[0]
 location = os.path.dirname(_script)
-version = "2.05.7𝛽"
+version = "2.05.9𝛽"
 # ===================================================
 # Global Color definitions
 # ===================================================
-bgcolor = "#919191"
-fgcolor = "black"
-activebgcolor = "gray66"
-activefgcolor = "gray5"
-troughcolor = "gray43"
-barcolor = "gray82"
-_darkcolor = bgcolor
-_lightcolor = fgcolor
-disabledcolor = "gray42"
-disabledfgcolor = "gray3"
-fieldbgcolor = "gray20"
-fieldfgcolor = "gray79"
+_bgcolor = "#919191"
+_fgcolor = "black"
+_activebgcolor = "gray66"
+_activefgcolor = "gray5"
+_troughcolor = "gray43"
+_barcolor = "gray82"
+_darkcolor = _bgcolor
+_lightcolor = _fgcolor
+_disabledcolor = "gray42"
+_disabledfgcolor = "gray3"
+_fieldbgcolor = "gray20"
+_fieldfgcolor = "gray79"
 _bordercolor = "dimgray"
-tvwindow = "lightgoldenrod3"
-tvwindowdisabled = "peachpuff3"
-selectbackground = "#93ba45"
-selectforeground = "black"
-highlightBackground = bgcolor
-highlightColor = "black"
-InsertBackground = "black"
-selectColor = "#93ba45"
+_tvwindow = "lightgoldenrod3"
+_tvwindowdisabled = "peachpuff3"
+_selectbackground = "#93ba45"
+_selectforeground = "black"
+_highlightBackground = _bgcolor
+_highlightColor = "black"
+_InsertBackground = "black"
+_selectColor = "#93ba45"
 
 
-def create_styles(sty, imgpath):
-    # sty.configure(
-    #     "Formatted.TLabel",
-    #     font="Ubuntu 12 bold",
-    #     # anchor=tk.CENTER,
-    #     background=bgcolor,
-    #     foreground=fgcolor,
-    # )
+def create_styles(sty):
     # ===================================================
     # Apply a "generic" Toplevel style
     # ===================================================
-    sty.configure(
-        ".",
-        bgcolor="#919191",
-        fgcolor="black",
-        activebgcolor="gray66",
-        activefgcolor="gray5",
-        troughcolor="gray43",
-        barcolor="gray82",
-        _darkcolor=bgcolor,
-        _lightcolor=fgcolor,
-        disabledcolor="gray42",
-        disabledfgcolor="gray3",
-        fieldbgcolor="gray20",
-        fieldfgcolor="gray79",
-        _bordercolor="dimgray",
-        tvwindow="lightgoldenrod3",
-        tvwindowdisabled="peachpuff3",
-        selectbackground="#93ba45",
-        selectforeground="black",
-        highlightBackground=bgcolor,
-        highlightColor="black",
-        InsertBackground="black",
-        selectColor="#93ba45",
-    )
+    # sty.configure(
+    #     ".",
+    #     bgcolor=_bgcolor,
+    #     fgcolor=_fgcolor,
+    #     activebgcolor=_activebgcolor,
+    #     activefgcolor=_activefgcolor,
+    #     troughcolor=_troughcolor,
+    #     barcolor=_barcolor,
+    #     _darkcolor=_bgcolor,
+    #     _lightcolor=_fgcolor,
+    #     disabledcolor=_disabledcolor,
+    #     disabledfgcolor=_disabledfgcolor,
+    #     fieldbgcolor=_fieldbgcolor,
+    #     fieldfgcolor=_fieldfgcolor,
+    #     bordercolor=_bordercolor,
+    #     tvwindow=_tvwindow,
+    #     tvwindowdisabled=_tvwindowdisabled,
+    #     selectbackground=_selectbackground,
+    #     selectforeground=_selectforeground,
+    #     highlightBackground=_bgcolor,
+    #     highlightColor=_highlightColor,
+    #     InsertBackground=_InsertBackground,
+    #     selectColor=_selectColor,
+    # )
     sty.map(
         ".",
-        background=[("disabled", disabledcolor), ("active", activebgcolor)],
-        foreground=[("disabled", disabledfgcolor)],
-        selectbackground=[("!focus", selectbackground)],
+        background=[("disabled", _disabledcolor), ("active", _activebgcolor)],
+        foreground=[("disabled", _disabledfgcolor)],
+        selectbackground=[("!focus", _selectbackground)],
         selectforeground=[("!focus", "white")],
         embossed=[("disabled", 1)],
     )
@@ -133,7 +127,7 @@ def create_styles(sty, imgpath):
     # ===================================================
     sty.configure(
         "TLable",
-        background=bgcolor,
+        background=_bgcolor,
         foreground="black",
         font="Ubuntu 9 bold",
     )
@@ -142,13 +136,13 @@ def create_styles(sty, imgpath):
     # ===================================================
     sty.map(
         "TButton",
-        background=[("disabled", "#d9d9d9"), ("active", activebgcolor)],
-        foreground=[("disabled", disabledfgcolor), ("active", activefgcolor)],
+        background=[("disabled", "#d9d9d9"), ("active", _activebgcolor)],
+        foreground=[("disabled", _disabledfgcolor), ("active", _activefgcolor)],
     )
     sty.configure(
         "TButton",
-        foreground=fgcolor,
-        background=bgcolor,
+        foreground=_fgcolor,
+        background=_bgcolor,
         padding=[4, 4, 4, 4],
         font="Ubuntu 12 bold",
     )
@@ -157,22 +151,22 @@ def create_styles(sty, imgpath):
     # ===================================================
     sty.configure(
         "Custom.TButton",
-        foreground=fgcolor,
-        background=bgcolor,
+        foreground=_fgcolor,
+        background=_bgcolor,
         pading=[10, 10, 10, 10],
         font="Veranda 12 bold",
     )
     sty.map(
         "Custom.TButton",
-        background=[("disabled", "#d9d9d9"), ("active", activebgcolor)],
-        foreground=[("disabled", "snow"), ("active", activefgcolor)],
+        background=[("disabled", "#d9d9d9"), ("active", _activebgcolor)],
+        foreground=[("disabled", "snow"), ("active", _activefgcolor)],
     )
 
     sty.configure(
         "Toolbutton",
         anchor="center",
-        background=bgcolor,
-        foreground=fgcolor,
+        background=_bgcolor,
+        foreground=_fgcolor,
         relief="flat",
         highlightcolor=_bordercolor,
         shiftrelief=2,
@@ -183,11 +177,11 @@ def create_styles(sty, imgpath):
     sty.map(
         "Toolbutton",
         background=[
-            ("disabled", bgcolor),
+            ("disabled", _bgcolor),
             ("active", "gray49"),
-            ("selected", tvwindow),
+            ("selected", _tvwindow),
         ],
-        foreground=[("disabled", disabledfgcolor), ("active", activefgcolor)],
+        foreground=[("disabled", _disabledfgcolor), ("active", _activefgcolor)],
     )
 
     # ===================================================
@@ -211,8 +205,8 @@ def create_styles(sty, imgpath):
     )
     sty.configure(
         "TCheckbutton",
-        background=bgcolor,
-        foreground=fgcolor,
+        background=_bgcolor,
+        foreground=_fgcolor,
         indicatormargin=[6, 6, 6, 6],
         padding=[6, 6, 6, 6],
         font="Ubuntu 12 bold",
@@ -242,17 +236,17 @@ def create_styles(sty, imgpath):
     sty.map(
         "TCheckbutton",
         background=[
-            ("disabled", bgcolor),
-            ("pressed", activebgcolor),
-            ("active", activebgcolor),
-            ("hover", activebgcolor),
+            ("disabled", _bgcolor),
+            ("pressed", _activebgcolor),
+            ("active", _activebgcolor),
+            ("hover", _activebgcolor),
             # ("selected", tvwindow),
         ],
         foreground=[
-            ("disabled", disabledfgcolor),
-            ("pressed", activefgcolor),
-            ("active", activefgcolor),
-            ("hover", activefgcolor),
+            ("disabled", _disabledfgcolor),
+            ("pressed", _activefgcolor),
+            ("active", _activefgcolor),
+            ("hover", _activefgcolor),
         ],
     )
 
@@ -277,8 +271,8 @@ def create_styles(sty, imgpath):
     )
     sty.configure(
         "TRadiobutton",
-        background=bgcolor,
-        foreground=fgcolor,
+        background=_bgcolor,
+        foreground=_fgcolor,
         indicatormargin=[6, 6, 6, 6],
         padding=[6, 6, 6, 6],
         font="Ubuntu 12 bold",
@@ -308,17 +302,17 @@ def create_styles(sty, imgpath):
     sty.map(
         "TRadiobutton",
         background=[
-            ("disabled", bgcolor),
-            ("pressed", activebgcolor),
-            ("active", activebgcolor),
-            ("hover", activebgcolor),
+            ("disabled", _bgcolor),
+            ("pressed", _activebgcolor),
+            ("active", _activebgcolor),
+            ("hover", _activebgcolor),
             # ("selected", "springgreen3"),
         ],
         foreground=[
-            ("disabled", disabledfgcolor),
-            ("pressed", activefgcolor),
-            ("active", activefgcolor),
-            ("hover", activefgcolor),
+            ("disabled", _disabledfgcolor),
+            ("pressed", _activefgcolor),
+            ("active", _activefgcolor),
+            ("hover", _activefgcolor),
         ],
     )
 
@@ -328,11 +322,11 @@ def create_styles(sty, imgpath):
 
     sty.configure(
         "bar.Horizontal.TProgressbar",
-        troughcolor=troughcolor,
-        bordercolor=troughcolor,
-        background=barcolor,
-        lightcolor=barcolor,
-        darkcolor=barcolor,
+        troughcolor=_troughcolor,
+        bordercolor=_troughcolor,
+        background=_barcolor,
+        lightcolor=_barcolor,
+        darkcolor=_barcolor,
     )
 
     # ===================================================
@@ -340,17 +334,17 @@ def create_styles(sty, imgpath):
     # ===================================================
     sty.configure(
         "TCombobox",
-        background=activebgcolor,
+        background=_activebgcolor,
         foreground="black",
-        fieldbackground=tvwindow,
+        fieldbackground=_tvwindow,
         fieldforeground="black",
         arrowcolor="black",
     )
     sty.configure(
         "ComboboxPopdownFrame",
-        background=bgcolor,
-        foreground=fgcolor,
-        fieldbackground=tvwindow,
+        background=_bgcolor,
+        foreground=_fgcolor,
+        fieldbackground=_tvwindow,
         fieldforeground="black",
         borderwidth=2,
         relief="sunken",
@@ -362,11 +356,11 @@ def create_styles(sty, imgpath):
 
     sty.configure(
         "bar.Horizontal.TScale",
-        troughcolor=troughcolor,
-        bordercolor=troughcolor,
-        background=barcolor,
-        lightcolor=barcolor,
-        darkcolor=barcolor,
+        troughcolor=_troughcolor,
+        bordercolor=_troughcolor,
+        background=_barcolor,
+        lightcolor=_barcolor,
+        darkcolor=_barcolor,
     )
     # ===================================================
     # Style for ALL TSpinbox Widgets
@@ -375,13 +369,13 @@ def create_styles(sty, imgpath):
         "TSpinbox",
         arrowsize=11,
         bordercolor=_bordercolor,
-        background=activebgcolor,
+        background=_activebgcolor,
         foreground="black",
         lightcolor=_lightcolor,
         darkcolor=_darkcolor,
         selectbackground="springgreen2",
         selectforeground="black",
-        fieldbackground=tvwindow,
+        fieldbackground=_tvwindow,
         fieldforeground="black",
         arrowcolor="black",
     )
@@ -389,19 +383,19 @@ def create_styles(sty, imgpath):
     # ===================================================
     # Style for ALL TEntry widgets
     # ===================================================
-    sty.configure("TEntry", foreground="black", fieldbackground=tvwindow)
+    sty.configure("TEntry", foreground="black", fieldbackground=_tvwindow)
 
     # ===================================================
     # Style for ALL TFrame widgets
     # ===================================================
-    sty.configure("TFrame", background=bgcolor, relief=tk.GROOVE, borderwidth=2)
+    sty.configure("TFrame", background=_bgcolor, relief=tk.GROOVE, borderwidth=2)
 
     # ===================================================
     # Style for ALL TLabelframe widgets
     # ===================================================
     sty.configure(
         "TLabelframe",
-        background=bgcolor,
+        background=_bgcolor,
         bordercolor=_bordercolor,
         borderwidth=3,
         darkcolor=_darkcolor,
@@ -413,8 +407,8 @@ def create_styles(sty, imgpath):
     sty.configure(
         "TLabelframe.Label",
         font=("Ubuntu 10 bold"),
-        foreground=fgcolor,
-        background=bgcolor,
+        foreground=_fgcolor,
+        background=_bgcolor,
         padding=[12, 6],
     )
 
@@ -423,14 +417,16 @@ def create_styles(sty, imgpath):
     # ===================================================
     sty.configure(
         "Treeview",
-        background=tvwindow,
+        background=_tvwindow,
         foreground="black",
-        selected=selectbackground,
-        fieldbackground=tvwindow,
+        selected=_selectbackground,
+        fieldbackground=_tvwindow,
         # fieldforeground="black",
         font="Ubuntu 11 bold",
     )
-    sty.configure("heading", relief="sunken", background=bgcolor, font="Ubuntu 11 bold")
+    sty.configure(
+        "heading", relief="sunken", background=_bgcolor, font="Ubuntu 11 bold"
+    )
     sty.configure("item", foreground="black", padding=[3, 3])
     sty.configure("cell", padding=[6, 6])
     # ===================================================
@@ -438,8 +434,8 @@ def create_styles(sty, imgpath):
     # ===================================================
     sty.configure(
         "TMenubutton",
-        background=bgcolor,
-        foreground=fgcolor,
+        background=_bgcolor,
+        foreground=_fgcolor,
         width=25,
         padding=2,
         relief="raised",
@@ -449,10 +445,10 @@ def create_styles(sty, imgpath):
     # ===================================================
     # Style for ALL TPanedwindow
     # ===================================================
-    sty.configure("TPanedwindow", background=bgcolor)
+    sty.configure("TPanedwindow", background=_bgcolor)
     sty.configure(
         "Sash",
-        background=troughcolor,
+        background=_troughcolor,
         bordercolor=_bordercolor,
         lightcolor=_bordercolor,
         handlepad=10,
@@ -469,10 +465,10 @@ def create_styles(sty, imgpath):
 
 
 def add_options(toplevel):
-    toplevel.option_add("*TCombobox*Listbox*Background", tvwindow)
+    toplevel.option_add("*TCombobox*Listbox*Background", _tvwindow)
     toplevel.option_add("*TCombobox*Listbox*Foreground", "black")
-    toplevel.option_add("*TCombobox*Listbox*selectBackground", selectbackground)
-    toplevel.option_add("*TCombobox*Listbox*selectForeground", selectforeground)
+    toplevel.option_add("*TCombobox*Listbox*selectBackground", _selectbackground)
+    toplevel.option_add("*TCombobox*Listbox*selectForeground", _selectforeground)
     toplevel.option_add("TkFDialog*Foreground", "black")
     toplevel.option_add("TkChooseDir*Foreground", "black")
 
@@ -480,17 +476,17 @@ def add_options(toplevel):
 def set_palette(toplevel):
     # https://www.tcl-lang.org/man/tcl8.6/TkCmd/palette.htm
     toplevel.tk_setPalette(
-        activeBackground=activebgcolor,
-        activeForeground=activefgcolor,
-        background=bgcolor,
-        disabledForeground=disabledfgcolor,
-        foreground=fgcolor,
-        highlightBackground=bgcolor,
-        highlightColor="black",
-        InsertBackground="black",
-        selectColor="#93ba45",
-        selectBackground="#93ba45",
-        selectForeground=selectforeground,
+        activeBackground=_activebgcolor,
+        activeForeground=_activefgcolor,
+        background=_bgcolor,
+        disabledForeground=_disabledfgcolor,
+        foreground=_fgcolor,
+        highlightBackground=_bgcolor,
+        highlightColor=_fgcolor,
+        InsertBackground=_fgcolor,
+        selectColor=_selectbackground,
+        selectBackground=_selectbackground,
+        selectForeground=_selectforeground,
     )
 
 
